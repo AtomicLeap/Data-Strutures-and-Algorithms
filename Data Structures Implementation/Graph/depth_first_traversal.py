@@ -24,6 +24,10 @@ def depth_first_printi(adjacency_list: dict[str, list[str]], source_node: str):
         for neighbour in adjacency_list[current]:
             stack.append(neighbour)
 
+# n = number of nodes
+# O(n) Time complexity # Visit every node on graph
+# O(n) Space complexity # created a stack
+
 # Recursive method - r
 def depth_first_printr(adjacency_list: dict[str, list[str]], source_node: str):
     print(source_node)
@@ -31,8 +35,8 @@ def depth_first_printr(adjacency_list: dict[str, list[str]], source_node: str):
         depth_first_printr(adjacency_list, neighbour)
 
 # n = number of nodes
-# O(n) Time complexity
-# O(n) Space complexity 
+# O(n) Time complexity # Visit every node on graph
+# O(n) Space complexity # didn't visually create a stack, but recursion uses a stack under the hood
 
 depth_first_printi(graph, "a") # acebdf
 depth_first_printr(graph, "a") # abdfce
