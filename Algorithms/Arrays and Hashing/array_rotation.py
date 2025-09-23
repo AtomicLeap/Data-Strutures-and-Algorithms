@@ -5,7 +5,7 @@ def rotate_right(arr, k):
     n = len(arr)
     if n == 0: 
         return arr
-    k %= n  # wrap k within [0, n)
+    k %= n  # wrap k within [0, n]
     return [arr[(i - k) % n] for i in range(n)]
 
 # B) In-place (no extra array)
