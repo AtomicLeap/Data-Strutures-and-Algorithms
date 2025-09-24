@@ -34,8 +34,8 @@ At each step, either extend the current subarray or start fresh at nums[i].
 """
 def max_subarray(nums):
     curr = best = nums[0]
-    for x in nums[1:]:
-        curr = max(x, curr + x)  # extend or restart
+    for num in nums[1:]:
+        curr = max(num, curr + num)  # extend or restart
         best = max(best, curr)
     return best
 
