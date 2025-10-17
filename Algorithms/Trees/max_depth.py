@@ -18,6 +18,10 @@ def max_depth_r(root: TreeNode | None) -> int:
     right_depth = max_depth_r(root.right)
     return 1 + max(left_depth, right_depth)
 
+# n - number of nodes
+# O(n) - Time complexity
+# O(n) - Space complexity
+
 # Iterative Approach (Breadth First Approach/Level Order Traversal)
 
 # Idea of BFS Solution
@@ -41,3 +45,7 @@ def max_depth_i(root: TreeNode | None) -> int:
             if node.right:
                 queue.append(node.right)
     return depth
+
+# n - number of nodes
+# O(n) - Time complexity
+# O(n) - Space complexity

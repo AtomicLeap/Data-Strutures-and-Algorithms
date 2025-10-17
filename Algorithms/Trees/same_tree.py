@@ -16,6 +16,9 @@ def same_tree_r(p: TreeNode | None, q: TreeNode | None) -> bool:
     
     return same_tree_r(p.left, q.left) and same_tree_r(p.right, q.right)
 
+# n - number of nodes
+# O(n) - Time complexity
+# O(n) - Space complexity
 
 # Iterative solution (Breadth First Approach)
 from collections import deque
@@ -31,3 +34,7 @@ def same_tree_i(p: TreeNode | None, q: TreeNode | None) -> bool:
         queue.append((a.left,  b.left))
         queue.append((a.right, b.right))
     return True
+
+# n - number of nodes
+# O(n) - Time complexity
+# O(n) - Space complexity
