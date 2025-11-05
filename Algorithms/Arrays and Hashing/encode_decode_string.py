@@ -1,32 +1,8 @@
 # Leetcode 271 Encode and Decode Strings
 
-"""
-Design an algorithm to encode a list of strings into a single string. 
-The encoded string should be able to be decoded back to the original list of strings 
-(i.e., a reversible transformation).
+# https://leetcode.com/problems/encode-and-decode-strings/
 
-You need to implement two functions/methods:
-encode(strs: List[str]) -> str: Encodes a list of strings to a single string.
-decode(s: str) -> List[str]: Decodes the single string back to the original list of strings.
-
-Example 1
-Input: ["leet","code","love","you"]
-Output: ["leet","code","love","you"]
-
-Example 2
-Input: ["we","say",":","yes"]
-Output: ["we","say",":","yes"]
-
-Clarifications & Constraints
-The list of strings strs may be empty, or contain empty strings.
-Each string may contain any possible characters, including letters, digits, symbols, 
-any UTF-8 characters.
-The operations of encode and decode must be reversible, i.e., decoding the encoded string 
-of strs should return exactly strs.
-Make sure your solution handles special characters properly (e.g. "#", spaces, etc.), 
-not assuming any character won't appear in the strings.
-You should aim for an efficient solution in terms of both time and space usage.
-"""
+# https://neetcode.io/problems/string-encode-and-decode
 
 class Codec:
     def encode(self, strs: list[str]) -> str:
