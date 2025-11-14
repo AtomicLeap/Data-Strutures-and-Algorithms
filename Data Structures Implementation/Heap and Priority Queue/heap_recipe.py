@@ -94,9 +94,9 @@ Scheduling
 ----------------------------------------------------------------------------
 Operation	    |   Min/Max Heap |   Sorted List	|   Unsorted List
 ----------------------------------------------------------------------------
-Insert	        |   O(log n)	 |   O(n)	        |   O(1)   
-Get Min/Max	    |   O(1)	     |   O(1)	        |   O(n)    
-Remove Min/Max	|   O(log n)     |	 O(n)	        |   O(n)    
+Insert	       |   O(log n)	   |   O(n)	         |   O(1)   
+Get Min/Max	    |   O(1)	      |   O(1)	         |   O(n)    
+Remove Min/Max	 |   O(log n)     |	 O(n)	         |   O(n)    
 
 """
 
@@ -106,11 +106,11 @@ A heap does not need pointers.
 
 Given parent index i:
 -------------------------------------------
-Relationship	    Index
+Relationship	     Index
 -------------------------------------------
 Left child	        2*i + 1
 Right child	        2*i + 2
-Parent	            (i - 1) // 2
+Parent	           (i - 1) // 2
 
 Example heap array:
 
@@ -122,18 +122,34 @@ Represents:
       /     \
      3       5
     / \     / \
-   4  8   6  10
+   4  8    6   10
+"""
+
+# Heap Methods
+
+"""
+1. heapq.heappushpop(heap, item)
+ - Push item, then pop and return the smallest from the heap.
+ - Push → Pop (optimized)
+ - But if item is smaller than current min, that item will be returned immediately and not added to the heap.
+
+2. heapq.heapreplace(heap, item)
+ - Pop and return smallest, then push item into heap.
+ - Pop → Push
+ - Always pushes item
+ - Does not compare item with smallest — unlike heappushpop
+
 """
 
 # Summary
 
 """
 ------------------------------------------------------------------------------------------
-Feature	                Min-Heap	                    Max-Heap
+Feature	        |        Min-Heap	              |      Max-Heap
 ------------------------------------------------------------------------------------------
-Root	                Smallest element	            Largest element
-Property	            parent ≤ children	            parent ≥ children
-Used for	            extract-min, Dijkstra, PQ	    extract-max, heap sort, k-largest
+Root	           |     Smallest element	        |    Largest element
+Property	        |    parent ≤ children	        |    parent ≥ children
+Used for	        |    extract-min, Dijkstra, PQ	  |  extract-max, heap sort, k-largest
 
 A heap is a tree structure stored in an array that always maintains either 
 smallest or largest element at the top, with efficient insertion & removal.
