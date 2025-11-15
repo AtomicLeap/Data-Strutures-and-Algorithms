@@ -1,10 +1,6 @@
-# connected components count
+# Connected components count
 
-"""
-Write a function, connectedComponentsCount, that takes in the adjacency list 
-of an undirected graph. The function should return the number of connected 
-components within the graph.
-"""
+# https://structy.net/problems/connected-components-count
 
 graph_1 = {
   0: [8, 1, 5],
