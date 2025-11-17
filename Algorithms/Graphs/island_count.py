@@ -1,11 +1,6 @@
 # island count
 
-"""
-Write a function, island_count, that takes in a grid containing Ws and Ls. 
-W represents water and L represents land. The function should return the 
-number of islands on the grid. An island is a vertically or horizontally 
-connected region of land.
-"""
+# https://structy.net/problems/island-count
 
 # NOTE: Grid Graph
 grid_1 = [
@@ -34,7 +29,7 @@ grid_4 = [
   ['W', 'W'],
 ]
 
-def island_count(grid: list[list[str, str]]) -> int:
+def island_count(grid: list[list[str]]) -> int:
     visited = {}
     count = 0
 
