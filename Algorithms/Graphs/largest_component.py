@@ -1,10 +1,7 @@
 # largest component
 
-"""
-Write a function, largestComponent, that takes in the adjacency list of an 
-undirected graph. The function should return the size of the largest connected 
-component in the graph.
-"""
+# https://structy.net/problems/largest-component
+
 # NOTE: For undirected graphs, You will always need a visited list/set/dict to 
 # keep tract of visited nodes. This is to avoid being trapped in infinite loop.
 
