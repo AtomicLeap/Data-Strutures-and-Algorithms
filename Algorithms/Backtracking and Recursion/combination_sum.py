@@ -34,18 +34,18 @@ def combination_sum(candidates: List[int], target: int) -> List[List[List[int]]]
     candidates.sort()          # Optional but useful for pruning
     result = []
 
-    def backtrack(start: int, remaining: int, path: List[int]) -> None:
+    def backtrack(start_idx: int, remaining: int, combination: List[int]) -> None:
         # If we hit the target exactly, record the combination
         if remaining == 0:
-            result.append(path.copy())
+            result.append(combination.copy())
             return
 
-        # If we overshoot, stop exploring this path
+        # If we overshoot, stop exploring this combination
         if remaining < 0:
             return
 
-        # Try all candidates starting from 'start'
-        for i in range(start, len(candidates)):
+        # Try all candidates starting from 'start_idx'
+        for i in range(start_idx, len(candidates)):
             val = candidates[i]
 
             # Prune: no need to continue if current number already > remaining
@@ -53,11 +53,11 @@ def combination_sum(candidates: List[int], target: int) -> List[List[List[int]]]
                 break
 
             # Choose the current candidate
-            path.append(val)
+            combination.append(val)
             # Because we can reuse the same candidate, we call backtrack with 'i' (not i+1)
-            backtrack(i, remaining - val, path)
+            backtrack(i, remaining - val, combination)
             # Backtrack: undo the choice
-            path.pop()
+            combination.pop()
 
     backtrack(0, target, [])
     return result
