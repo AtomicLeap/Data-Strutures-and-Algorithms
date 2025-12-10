@@ -5,19 +5,19 @@
 # Without using division operator
 def product_except_self(nums: list[int]) -> list[int]:
     n = len(nums)
-    answer = [1] * n
+    results = [1] * n
 
     # prefix products
     for i in range(1, n):
-        answer[i] = answer[i - 1] * nums[i - 1]
+        results[i] = results[i - 1] * nums[i - 1]
 
     # suffix products
     suffix = 1
     for i in range(n - 1, -1, -1):
-        answer[i] *= suffix
+        results[i] *= suffix
         suffix *= nums[i]
 
-    return answer
+    return results
 
 # O(n) Time complexity
 # O(1) Space complexity 
