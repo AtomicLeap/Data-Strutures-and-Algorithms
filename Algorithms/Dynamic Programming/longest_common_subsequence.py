@@ -2,18 +2,17 @@
 
 # https://leetcode.com/problems/longest-common-subsequence/description/
 
-# 2D Dynamic Programming (DP) method
+# 2D Dynamic Programming (DP) method - Tabulation
 def lcs_length(text1: str, text2: str) -> int:
     m, n = len(text1), len(text2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    table = [[0] * (n + 1) for _ in range(m + 1)]
     for i in range(m - 1, -1, -1):
         for j in range(n - 1, -1, -1):
             if text1[i] == text2[j]:
-                dp[i][j] = 1 + dp[i + 1][j + 1]
+                table[i][j] = 1 + table[i + 1][j + 1]
             else:
-                dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])
-    print(dp)
-    return dp[0][0]
+                table[i][j] = max(table[i + 1][j], table[i][j + 1])
+    return table[0][0]
 
 # O(m * n) - Time complexity
 # O(m * n) (can be reduced to O(min(m, n))) - Space complexity
@@ -24,16 +23,17 @@ def lcs_length_optimized(a: str, b: str) -> int:
     if len(a) < len(b):
         a, b = b, a
     n = len(b)
-    next_row = [0]*(n + 1)
-    for i in range(len(a) - 1, -1, -1):
-        curr = [0]*(n + 1)
+    m = len(a)
+    table = [0]*(n + 1)
+    for i in range(m - 1, -1, -1):
+        curr_table = [0]*(n + 1)
         for j in range(n - 1, -1, -1):
             if a[i] == b[j]:
-                curr[j] = 1 + next_row[j + 1]
+                curr_table[j] = 1 + table[j + 1]
             else:
-                curr[j] = max(next_row[j], curr[j + 1])
-        next_row = curr
-    return next_row[0]
+                curr_table[j] = max(table[j], curr_table[j + 1])
+        table = curr_table
+    return table[0]
 
 # O(m * n) - Time complexity
 # O(min(m, n)) - Space complexity
@@ -42,13 +42,13 @@ def lcs_length_optimized(a: str, b: str) -> int:
 # Reconstruct the Longest Common Subsequence (LCS) string
 def lcs_string(text1: str, text2: str) -> str:
     m, n = len(text1), len(text2)
-    dp = [[0]*(n + 1) for _ in range(m+1)]
+    table = [[0]*(n + 1) for _ in range(m+1)]
     for i in range(m - 1, -1, -1):
         for j in range(n - 1, -1, -1):
             if text1[i] == text2[j]:
-                dp[i][j] = 1 + dp[i + 1][j + 1]
+                table[i][j] = 1 + table[i + 1][j + 1]
             else:
-                dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])
+                table[i][j] = max(table[i + 1][j], table[i][j + 1])
 
     # Backtrack to build the sequence
     i = j = 0
@@ -58,7 +58,7 @@ def lcs_string(text1: str, text2: str) -> str:
             out.append(text1[i])
             i += 1
             j += 1
-        elif dp[i + 1][j] >= dp[i][j + 1]:
+        elif table[i + 1][j] >= table[i][j + 1]:
             i += 1
         else:
             j += 1
