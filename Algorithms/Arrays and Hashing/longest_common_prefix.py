@@ -37,7 +37,7 @@ def longest_common_prefix_h(strs):
 
 # n = number of strings, m = length of shortest string.
 # O(n . m) Time complexity
-# O(n) Space complexity
+# O(1) Space complexity
 
 print(longest_common_prefix(["flower","flow","flight"])) # "fl"
 print(longest_common_prefix(["dog","racecar","car"])) # " "
