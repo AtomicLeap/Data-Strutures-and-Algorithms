@@ -1,4 +1,4 @@
-# Heap
+# Heap Recipe
 
 """
 What is a Heap?
