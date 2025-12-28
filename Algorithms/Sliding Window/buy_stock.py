@@ -1,44 +1,18 @@
 # Leetcode 121. Best Time to Buy and Sell Stock
 
-"""
-You are given an array prices where prices[i] is the price of a given stock on the ith day.
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
 
-You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
-
-Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
-
- 
-
-Example 1:
-
-Input: prices = [7,1,5,3,6,4]
-Output: 5
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
-Example 2:
-
-Input: prices = [7,6,4,3,1]
-Output: 0
-Explanation: In this case, no transactions are done and the max profit = 0.
- 
-
-Constraints:
-
-1 <= prices.length <= 105
-0 <= prices[i] <= 104
-"""
-
-# Sliding Window Approach
+# Sliding Window Approach/Two pointer approach
 def buy_stock(prices: list[int]) -> int:
-    buy, sell, n, max_profit = 0 , 1, len(prices), 0
+    buy_index, sell_index, n, max_profit = 0 , 1, len(prices), 0
 
-    while sell < n:
-        if prices[sell] > prices[buy]:
-            profit = prices[sell] - prices[buy]
+    while sell_index < n:
+        if prices[sell_index] > prices[buy_index]:
+            profit = prices[sell_index] - prices[buy_index]
             max_profit = max(max_profit, profit)
         else:
-            buy = sell
-        sell += 1
+            buy_index = sell_index
+        sell_index += 1
     return max_profit
 
 # n = len(prices)
@@ -65,7 +39,27 @@ def buy_sell_stock(prices: list[int]) -> int:
 # O(n) - Time complexity
 # O(1) - Space complexity
 
+# Brute-Force Approach
+def sell_at_profit(prices: list[int]) -> int:
+    max_profix = 0
+    n = len(prices)
+
+    for idx, price in enumerate(prices):
+        for i in range(idx + 1, n):
+            curr_profit = prices[i] - price
+            if curr_profit > 0:
+                max_profix = max(max_profix, curr_profit)
+    return max_profix
+
+# n = len(prices)
+# O(n ^ 2) - Time complexity
+# O(1) - Space complexity
+
 print(buy_sell_stock([7,1,5,3,6,4])) # 5
 print(buy_sell_stock([7,6,4,3,1])) # 0
 print(buy_sell_stock([3, 3])) # 0
 print(buy_sell_stock([2, 1, 4])) # 3
+
+print(sell_at_profit([7,1,5,3,6,4])) # 5
+print(sell_at_profit([7,6,4,3,1])) # 0
+print(sell_at_profit([7, 9])) # 2
