@@ -25,7 +25,7 @@ False, False, False, True, True, True
 
 Once True starts, it stays True.
 
-This allows Binary Search on the answer, even when data isn’t explicitly sorted.
+This allows Binary Search on the answer, even when data isn't explicitly sorted.
 """
 
 # 3. Intuition (mental model)
@@ -53,18 +53,18 @@ Algorithm
 
 Code - Implementation
 
-def binary_search(arr, target):
-    l, r = 0, len(arr) - 1
+def binary_search(arr: list[int], target: int) -> int:
+    left, right = 0, len(arr) - 1
 
-    while l <= r:
-        mid = (l + r) // 2
+    while left <= right:
+        mid = (left + right) // 2
 
         if arr[mid] == target:
             return mid
         elif arr[mid] < target:
-            l = mid + 1
+            left = mid + 1
         else:
-            r = mid - 1
+            right = mid - 1
 
     return -1
 
@@ -79,22 +79,22 @@ Space: O(1)
 Most interview problems are not exact match searches.
 Instead, they ask for:
 
-First occurrence
-Last occurrence
-Smallest valid index
-Largest feasible value
+1. First occurrence
+2. Last occurrence
+3. Smallest valid index
+4. Largest feasible value
 
 Example: First index ≥ target
-def lower_bound(arr, target):
-    l, r = 0, len(arr)
+def lower_bound(arr: list[int], target: int) -> int:
+    left, right = 0, len(arr)
 
-    while l < r:
-        mid = (l + r) // 2
+    while left < right:
+        mid = (left + right) // 2
         if arr[mid] < target:
-            l = mid + 1
+            left = mid + 1
         else:
-            r = mid
-    return l
+            right = mid
+    return left
 """
 
 # 6. Binary Search on the Answer
@@ -106,14 +106,14 @@ Pattern
 def feasible(x):
     return True or False  # monotonic
 
-l, r = min_possible, max_possible
-while l < r:
-    mid = (l + r) // 2
+left, right = min_possible, max_possible
+while left < right:
+    mid = (left + right) // 2
     if feasible(mid):
-        r = mid
+        right = mid
     else:
-        l = mid + 1
-return l
+        left = mid + 1
+return left
 
 Examples
 
@@ -169,7 +169,7 @@ in a sorted or monotonic search space by repeatedly halving the range.
 # 11. Key insight to remember
 
 """
-Binary Search is not about arrays — it’s about monotonicity.
+Binary Search is not about arrays — it's about monotonicity.
 """
 
 # 12. Final mental checklist
@@ -182,4 +182,55 @@ Before using Binary Search, ask:
 3. Can I write a feasible(mid) function?
 
 If yes → Binary Search
+"""
+
+# 13. When Should Binary Search Click in Your Mind?
+"""
+Think Binary Search when you see:
+
+-> Sorted array / rotated sorted array
+-> Minimum / Maximum answer
+-> Capacity / speed / days / size
+-> "Can we do it?" → Yes / No type logic
+-> If the answer looks like:
+    false false false true true true
+
+Then, Binary Search is the correct approach.
+"""
+
+# Most Generalized Binary Search Template
+
+# https://leetcode.com/discuss/post/786126/python-powerful-ultimate-binary-search-t-rwv8/
+
+"""
+Suppose we have a search space. It could be an array, a range, etc. Usually it's 
+sorted in ascending order. For most tasks, we can transform the requirement into 
+the following generalized form:
+
+Minimize k , such that condition(k) is True
+
+The following code is the most generalized binary search template:
+
+def binary_search(array: list[int]) -> int:
+    def condition(value) -> bool:
+        pass
+
+    left, right = min(search_space), max(search_space) # could be [0, n], [1, n] etc. Depends on problem
+    while left < right:
+        mid = left + (right - left) // 2
+        if condition(mid):
+            right = mid
+        else:
+            left = mid + 1
+    return left
+
+What's really nice of this template is that, for most of the binary search problems, 
+we only need to modify three parts after copy-pasting this template, and never need 
+to worry about corner cases and bugs in code any more:
+
+1. Correctly initialize the boundary variables left and right to specify 
+    search space. Only one rule: set up the boundary to include "all possible elements"
+2. Decide return value. Is it "return left" or "return left - 1"? 
+    Remember this: after exiting the while loop, left is the "minimal k satisfying the condition function";
+3. Design the condition function. This is the most difficult and most beautiful part. Needs lots of practice.
 """
