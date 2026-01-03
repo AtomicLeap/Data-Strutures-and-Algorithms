@@ -192,7 +192,7 @@ subproblems and combining them to build an optimal solution efficiently.
 # 12. Key insight to remember
 
 """
-DP is not about code — it’s about state and transitions.
+DP is not about code — it's about state and transitions.
 
 Once you get those right, implementation is mechanical.
 """

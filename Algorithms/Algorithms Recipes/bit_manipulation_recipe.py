@@ -158,11 +158,12 @@ else:
 # 4. Toggle a specific bit
 # XOR flips bits:
 # x ^ 1 = ~x (bit is flipped)
-# x ^ 0 = x (bit unchanged)
+# x ^ 0 = x (bit unchanged) --> Identity
 # So:
 """
 n = n ^ (1 << k)
 """
+
 # 1 << k → creates a mask with only the k-th bit = 1
 # XOR with that mask flips that specific bit
 
@@ -172,6 +173,7 @@ n = 5  # 0101
 n = n ^ (1 << 0)  # flip bit 0 → 4
 n = n ^ (1 << 0)  # flip bit 0 again → 5
 """
+
 # Toggling twice = no change.
 
 # 5. Check if two numbers are equal
@@ -185,7 +187,7 @@ if (a ^ b) == 0:
 def missing_number(nums):
     n = len(nums)
     result = 0
-    for i in range(n+1):
+    for i in range(n + 1):
         result ^= i
     for num in nums:
         result ^= num
@@ -210,6 +212,7 @@ print(lowbit)  # 4
 if a & b:
     print("They share a '1' bit")
 """
+
 # Why it works:
 # a & b → keeps only common 1s.
 # If result ≠ 0, they share at least one set bit.
@@ -236,3 +239,27 @@ if (a ^ b) < 0:
     print("Opposite signs")
 """
 # Because the sign bit differs.
+
+"""
+What is XOR?
+XOR returns 1 if bits are different, else 0.
+
+0 ^ 0 = 0
+0 ^ 1 = 1
+1 ^ 0 = 1
+1 ^ 1 = 0
+Core XOR Properties (VERY IMPORTANT)
+a ^ a = 0        // duplicates cancel
+a ^ 0 = a        // identity
+a ^ b = b ^ a    // commutative
+(a ^ b) ^ c = a ^ (b ^ c)  // associative
+These properties allow us to ignore order and remove duplicates.
+
+When to Use XOR?
+Think about XOR when:
+
+1. Every element appears twice except one
+2. Exactly two unique elements
+3. Asked for O(1) space
+4. Bit manipulation tag is present
+"""
