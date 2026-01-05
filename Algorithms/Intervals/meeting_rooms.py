@@ -1,34 +1,22 @@
 # Leetcode 252. Meeting Rooms
 
-"""
-Given an array of meeting time interval objects consisting of start and end times 
-[[start_1,end_1],[start_2,end_2],...] (start_i < end_i), determine if a person could add all 
-meetings to their schedule without any conflicts.
+# https://leetcode.com/problems/meeting-rooms/description/
 
-Example 1:
+def meeting_rooms(intervals: list[list[int]])-> bool:
+    intervals.sort(key=lambda x: x[0])
+    last_end = float('-inf')
 
-Input: intervals = [(0,30),(5,10),(15,20)]
+    for start, end in intervals:
+        if start < last_end:
+            return False
+        last_end = max(last_end, end)
+        
+    return True
 
-Output: false
-Explanation:
+# O(n log n) - Time complexity
+# O(1) - Space complexity
 
-(0,30) and (5,10) will conflict
-(0,30) and (15,20) will conflict
-Example 2:
-
-Input: intervals = [(5,8),(9,15)]
-
-Output: true
-Note:
-
-(0,8),(8,10) is not considered a conflict at 8
-Constraints:
-
-0 <= intervals.length <= 500
-0 <= intervals[i].start < intervals[i].end <= 1,000,000
-"""
-
-def meeting_rooms(intervals: list[list[int]]) -> bool:
+def meeting_rooms_i(intervals: list[list[int]]) -> bool:
     intervals.sort(key=lambda x: x[0])
     
     for idx in range(1, len(intervals)):
@@ -37,10 +25,16 @@ def meeting_rooms(intervals: list[list[int]]) -> bool:
     return True
 
 # O(n log n) - Time complexity
-# O(n) - Space complexity
+# O(1) - Space complexity
 
 print(meeting_rooms([(0,30),(5,10),(15,20)]))  # False
 print(meeting_rooms([(0,30),(5,10),(15,20)]))  # False
 print(meeting_rooms([(5,8),(9,15)]))           # True
 print(meeting_rooms([(0,8),(8,10)]))           # True
 print(meeting_rooms([]))                       # True
+print('----------------------------------------------------')
+print(meeting_rooms_i([(0,30),(5,10),(15,20)]))  # False
+print(meeting_rooms_i([(0,30),(5,10),(15,20)]))  # False
+print(meeting_rooms_i([(5,8),(9,15)]))           # True
+print(meeting_rooms_i([(0,8),(8,10)]))           # True
+print(meeting_rooms_i([]))                       # True
