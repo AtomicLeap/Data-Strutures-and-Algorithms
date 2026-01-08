@@ -4,7 +4,7 @@
 
 def single_number(nums: list[int]) -> list[int]:
     # Step 1: XOR of all elements = x ^ y
-    xor_result = 0
+    xor_result = 0 # Zero is Identity of XOR
 
     for num in nums:
         xor_result ^= num
