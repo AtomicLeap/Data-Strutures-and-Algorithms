@@ -17,9 +17,13 @@ def valid_parentheses(s: str)-> bool:
             stack.append(char)
     return not stack
 
+# n = len(s)
+# O(n) Time complexity
+# O(n) Space complexity 
+
 def valid_parentheses_alt(s: str) -> bool:
     # Quick fail: empty string or odd-length strings can’t be perfectly paired
-    if not s or len(s) % 2: 
+    if not s or len(s) & 1:
         return False
 
     stack = []
@@ -33,6 +37,10 @@ def valid_parentheses_alt(s: str) -> bool:
                 return False
             stack.pop()
     return not stack
+
+# n = len(s)
+# O(n) Time complexity
+# O(n) Space complexity 
 
 print(valid_parentheses("()")) # True
 print(valid_parentheses("()[]{}")) # True
