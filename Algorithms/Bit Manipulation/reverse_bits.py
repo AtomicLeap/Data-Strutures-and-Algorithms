@@ -1,43 +1,19 @@
 # Leetcode 190. Reverse Bits
 
-"""
-Reverse bits of a given 32 bits signed integer.
-
-Example 1:
-Input: n = 43261596
-Output: 964176192
-Explanation:
-Integer	Binary
-43261596	00000010100101000001111010011100
-964176192	00111001011110000010100101000000
-
-Example 2:
-Input: n = 2147483644
-Output: 1073741822
-Explanation:
-Integer	Binary
-2147483644	01111111111111111111111111111100
-1073741822	00111111111111111111111111111110
- 
-Constraints:
-0 <= n <= 231 - 2
-n is even.
-
-Follow up: If this function is called many times, how would you optimize it?
-"""
+# https://leetcode.com/problems/reverse-bits/description/
 
 # Key Idea
 # Process each of the 32 bits one by one.
 # At each step:
-# Shift the result left by 1 (res <<= 1).
+# Shift the result left by 1 (result <<= 1).
 # Take the least significant bit of n (n & 1) and add it.
 # Shift n right by 1 (n >>= 1).
 def reverse_bits(n: int) -> int:
-    res = 0
+    result = 0
     for _ in range(32):
-        res = (res << 1) | (n & 1)  # append last bit of n to res
+        result = (result << 1) | (n & 1)  # append last bit of n to result
         n >>= 1                     # drop last bit of n
-    return res
+    return result
 
 # O(1) - Time complexity
 # O(1) - Space complexity
@@ -52,10 +28,10 @@ def reverse_bits(n: int) -> int:
 reverse_cache = [0] * 256
 for i in range(256):
     rev = 0
-    x = i
+    num = i
     for _ in range(8):
-        rev = (rev << 1) | (x & 1)
-        x >>= 1
+        rev = (rev << 1) | (num & 1)
+        num >>= 1
     reverse_cache[i] = rev
 
 def reverse_bits_opt(n: int) -> int:
