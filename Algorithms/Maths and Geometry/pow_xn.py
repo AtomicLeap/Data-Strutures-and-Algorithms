@@ -10,8 +10,9 @@ This is too slow when n is large (up to 2^31 - 1)
 
 Instead, we use the identity:
 
-->  x(n) -> (x^(n/2))^2,  if n is even
-->  x(n) -> x * (x^(n//2))^2, if n is odd
+->  x^n -> 1, if n = 0
+->  x^n -> (x^(n/2))^2,  if n is even
+->  x^n -> x * (x^(n//2))^2, if n is odd
 
 Negative powers are handled by inversion:
 ->  x^-n = 1/x^n
