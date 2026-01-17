@@ -1,5 +1,7 @@
 # Leetcode 3790. Smallest All-Ones Multiple
 
+# https://leetcode.com/problems/smallest-all-ones-multiple/description/
+
 def smallest_all_one(k: int) -> int:
     # impossible if k has factor 2 or 5
     if k % 2 == 0 or k % 5 == 0:
