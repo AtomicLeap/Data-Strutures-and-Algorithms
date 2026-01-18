@@ -9,12 +9,12 @@ def group_anagrams(strs: list[str]) -> list[str]:
     group = defaultdict(list)
 
     for word in strs:
-        count = [0] * 26 # Prefix list for all alphabets
+        word_table = [0] * 26 # Prefix list for all alphabets
 
         for char in word:
-            count[ord(char) - ord('a')] += 1
+            word_table[ord(char) - ord('a')] += 1
 
-        key = tuple(count) # tuples are hashable
+        key = tuple(word_table) # tuples are hashable
         group[key].append(word)
 
     return list(group.values())
