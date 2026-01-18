@@ -5,5 +5,8 @@
 def has_duplicate(nums: list[int]) -> bool:
     return len(set(nums)) != len(nums)
 
+# O(1) Time complexity
+# O(n) Space complexity
+
 print(has_duplicate([1, 2, 3, 3])) # True
 print(has_duplicate([1, 2, 3, 4, 5])) # False
