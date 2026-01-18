@@ -7,3 +7,6 @@ def array_concatenation(nums: list[int]) -> list[int]:
 
 print(array_concatenation([1,2,1])) # [1,2,1,1,2,1]
 print(array_concatenation([1,3,2,1])) # [1,3,2,1,1,3,2,1]
+
+# O(n) Time complexity
+# O(1) Space complexity
