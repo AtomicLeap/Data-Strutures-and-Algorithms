@@ -4,7 +4,7 @@
 
 # XOR trick
 def find_difference(s: str, t: str) -> str:
-    diff = 0
+    diff = 0 # Zero is Identity for XOR
 
     for char in s:
         diff ^= ord(char)
