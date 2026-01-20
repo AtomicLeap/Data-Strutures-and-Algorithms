@@ -1,28 +1,6 @@
 # Leetcode 9. Palindrome Number
 
-"""
-Given an integer x, return true if x is a palindrome, and false otherwise.
-
-Example 1:
-Input: x = 121
-Output: true
-Explanation: 121 reads as 121 from left to right and from right to left.
-
-Example 2:
-Input: x = -121
-Output: false
-Explanation: From left to right, it reads -121. From right to left, it becomes 121-. 
-Therefore it is not a palindrome.
-
-Example 3:
-Input: x = 10
-Output: false
-Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
- 
-Constraints:
--231 <= x <= 231 - 1
-Follow up: Could you solve it without converting the integer to a string?
-"""
+# https://leetcode.com/problems/palindrome-number/description/
 
 # 1) Palindrome check (integer, no strings)
 def is_palindrome_int(x: int) -> bool:
@@ -39,6 +17,34 @@ def is_palindrome_int(x: int) -> bool:
     # For odd digit counts, rev has one extra middle digit → drop it with // 10
     return x == rev or x == rev // 10
 
+# O(n / 2) - Time complexity
+# O(1) - Space complexity
+
+# 2) Palindrome check (convert int to strings)
+def is_palindrome(x: int) -> bool:
+    num_str = str(x)
+    n = len(num_str)
+
+    left = 0
+    right = n - 1
+
+    while left < right:
+        if num_str[left] != num_str[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
+    # Alternatively for Two pointers
+    # for i in range(n // 2):
+    #     if num_str[i] != num_str[n - 1 - i]:
+    #         return False
+    # return True
+
+# O(n / 2) - Time complexity
+# O(1) - Space complexity
+
+
 # n = number of digits in number
 # O(n) - Time complexity
 # O(1) - Space complexity
@@ -47,3 +53,8 @@ print(is_palindrome_int(121)) # True
 print(is_palindrome_int(1221)) # True
 print(is_palindrome_int(-121)) # False
 print(is_palindrome_int(10)) # False
+
+print(is_palindrome(121)) # True
+print(is_palindrome(1221)) # True
+print(is_palindrome(-121)) # False
+print(is_palindrome(10)) # False
