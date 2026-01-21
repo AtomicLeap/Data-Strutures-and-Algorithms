@@ -1,16 +1,15 @@
-# Bisect
+# Bisect Recipe
 
 # What is bisect in Python?
 """
 bisect is a built-in Python module that helps you:
 
 1. Maintain a sorted list efficiently.
-
 2. Find insertion points for new elements (using binary search).
-
 3. Insert elements into a sorted list at the correct position.
 
-It avoids you having to sort every time you insert something — instead, you can binary search the correct position in O(log n) time.
+It avoids you having to sort every time you insert something — instead, 
+you can binary search the correct position in O(log n) time.
 """
 
 # Importing
@@ -19,13 +18,10 @@ import bisect
 
 Now you can use:
 
-bisect_left()
-
-bisect_right()
-
-insort_left()
-
-insort_right()
+1. bisect_left()
+2. bisect_right()
+3. insort_left()
+4. insort_right()
 """
 
 # bisect_left(list, num)
@@ -101,6 +97,15 @@ arr = [1, 3, 4, 4, 5]
 insort_right(arr, 4)
 print(arr)   # [1, 3, 4, 4, 4, 5] (same but placed after existing 4s)
 
+# NOTE
+"""
+bisect_left and bisect_right -> returns the index where element can be inserted 
+                                without distorting the sorted nature of the list
+
+insort_left and insort_right -> return void. They insert the element at the
+                                appropriate index, but returns None(Null).                             
+                                
+"""
 # Common Uses of bisect
 """
 -------------------------------------------------------------------------------------------
@@ -137,10 +142,9 @@ print(count)  # Output: 3  (40, 50, 60)
 
 """
 We use bisect_left because:
-
-We want to replace the first element ≥ x (to keep subsequence strictly increasing).
-
-It gives the smallest possible tail for subsequences of that length.
+1. We want to replace the first element ≥ x (to keep subsequence strictly 
+    increasing).
+2. It gives the smallest possible tail for subsequences of that length.
 """
 
 from bisect import bisect_left
@@ -169,7 +173,6 @@ insort_right(arr, num)	|   inserts at rightmost position	|   keeps list sorted
 
 # In short:
 """
-Use bisect_left when you need strictly increasing sequences or lower bounds.
-
-Use bisect_right when you want non-decreasing or upper bounds.
+-> Use bisect_left when you need strictly increasing sequences or lower bounds.
+-> Use bisect_right when you want non-decreasing or upper bounds.
 """
