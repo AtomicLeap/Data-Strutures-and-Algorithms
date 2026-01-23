@@ -67,6 +67,7 @@ class LinkedList:
 
 # Reverse linked list
   def reverse(self):
+    # We use 3 pointers: previous, current, next (next_node)
     previous = None
     current = self.head
 
