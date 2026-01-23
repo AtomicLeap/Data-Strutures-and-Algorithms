@@ -15,6 +15,9 @@ def three_sum(nums: list[int]) -> list[list[int]]:
         # Skip duplicate first elements
         if i > 0 and nums[i] == nums[i - 1]:
             continue
+        # Optional minor pruning: since array is sorted, if nums[i] > 0, sum can't be 0
+        if nums[i] > 0:
+            break
 
         left, right = i + 1, n - 1
         while left < right:
