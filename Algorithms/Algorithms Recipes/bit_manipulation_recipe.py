@@ -80,6 +80,14 @@ if n & (1 << k):
     print("Bit is set")
 """
 
+# 6. Check a numbers Lowest set bit
+
+"""
+Given number: n
+
+lowest_bit = n & -n
+"""
+
 # With OR (|)
 # 1. Set a specific bit
 """
