@@ -17,6 +17,17 @@
 # 1. Modulo operator (%)
 
 """
+Mathematical idea of modulo
+Modulo is defined so that for any integers a and positive n:
+    a % n = r <-> a = q.n + r,    where 0 <= r < n
+q is an integer (the quotient)
+r is the remainder
+
+The key rule is that the remainder is always non-negative.
+Example:
+1. -1 % 4 = 3   -> -1 = (-1).4 + 3
+2. -3 % 2 = 1   -> -3 = (-2).2 + 1
+
 Returns the **remainder** after dividing one number by another.
 a % b = remainder when a is divided by b
 
