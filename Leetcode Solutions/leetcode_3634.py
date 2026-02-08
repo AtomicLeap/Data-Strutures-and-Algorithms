@@ -16,6 +16,7 @@ def min_removal(nums: list[int], k: int) -> int:
             best = max(best, right - left + 1)
 
         return n - best
+
 # Complexity
 # Sorting: O(n log n)
 # Two-pointer scan: O(n)
