@@ -16,6 +16,8 @@ def jump_game(nums):
             return True
     return True                # 4) Finished loop without getting stuck.
 
+# O(n) - Time complexity
+# O(1) - Space complexity
 
 print(jump_game([2,3,1,1,4])) # True
 print(jump_game([3,2,1,0,4])) # False
