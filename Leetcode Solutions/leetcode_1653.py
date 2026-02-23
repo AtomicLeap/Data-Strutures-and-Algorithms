@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/minimum-deletions-to-make-string-balanced/description
 
+# Tags -> String
+
 def min_deletions(s: str) -> int:
     num_of_b = 0          # number of 'b' seen so far
     min_deletions = 0        # min deletions for prefix to be balanced
