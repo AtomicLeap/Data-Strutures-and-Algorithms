@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/palindrome-number/description/
 
+# Tags -> Maths
+
 def solution_1(num: int) -> bool:
   num_str = str(num)
   n = len(num_str)
