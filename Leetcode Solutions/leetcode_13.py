@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/roman-to-integer/description/
 
+# Tags -> Hash Table
+
 def solution(s: str) -> int:
     n = len(s)
     result = 0
