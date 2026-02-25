@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/longest-common-prefix/
 
+# Tags -> Array, String
+
 def solution(str_list: list[str]) -> str:
     prefix_str = ""
     if not str_list:
