@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/valid-parentheses/description/
 
-# Stack
+# Tags -> Stack
 
 
 def solution(s: str) -> bool:
