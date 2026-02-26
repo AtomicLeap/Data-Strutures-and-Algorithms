@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/roman-to-integer/description/
 
-# Tags -> Hash Table
+# Tags -> Hash Table, Maths
 
 def solution(s: str) -> int:
     n = len(s)
