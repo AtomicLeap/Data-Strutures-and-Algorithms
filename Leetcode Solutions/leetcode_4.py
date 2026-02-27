@@ -49,3 +49,27 @@ def find_median_sorted_arrays(nums1: list[int], nums2: list[int]) -> float:
 
 print(find_median_sorted_arrays([1,3], [2])) # 2.0
 print(find_median_sorted_arrays([1,2], [3, 4])) # 2.50
+
+def find_median_sorted_arrays_o(nums1: list[int], nums2: list[int]) -> float:
+    def find_median(i: int, j: int, k: int) -> int:
+        if i >= m:
+            return nums2[j + k - 1]
+        if j >= n:
+            return nums1[i + k - 1]
+        if k == 1:
+            return min(nums1[i], nums2[j])
+        p = k // 2
+        x = nums1[i + p - 1] if i + p - 1 < m else float("inf")
+        y = nums2[j + p - 1] if j + p - 1 < n else float("inf")
+        return find_median(i + p, j, k - p) if x < y else find_median(i, j + p, k - p)
+
+    m, n = len(nums1), len(nums2)
+    a = find_median(0, 0, (m + n + 1) // 2)
+    b = find_median(0, 0, (m + n + 2) // 2)
+    return (a + b) / 2
+
+# O(log(m+n)) - Time complexity
+# O(1) - Space complexity
+
+print(find_median_sorted_arrays_o([1,3], [2])) # 2.0
+print(find_median_sorted_arrays_o([1,2], [3, 4])) # 2.50
