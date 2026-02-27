@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/merge-two-sorted-lists/
 
-# Data structure -> Linked list
+# Tags -> Linked list
 
 # LeetCode-style ListNode:
 class ListNode:
