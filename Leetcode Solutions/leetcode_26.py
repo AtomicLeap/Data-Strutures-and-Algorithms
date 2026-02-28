@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 
+# Tags -> Array, Two Pointers
+
 def solution(nums: list[int]) -> int:
     n = len(nums)
     last_idx = 0 # Last index of unique number
