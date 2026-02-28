@@ -1,8 +1,8 @@
 # Leetcode 55. Jump Game
 
-# Greedy Algorithm
-
 # https://leetcode.com/problems/jump-game/description/
+
+# Tags -> # Greedy, Dynamic Programming, Array
 
 def jump_game(nums):
     max_reach = 0
