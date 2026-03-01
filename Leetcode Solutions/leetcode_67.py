@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/add-binary/description/
 
+# Tags -> Math, String, Bit Manipulation
+
 def add_binary(a: str, b: str) -> str:
     i = len(a) - 1
     j = len(b) - 1
