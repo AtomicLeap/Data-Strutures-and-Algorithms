@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/reverse-bits/description/
 
+# Tags -> Bit Manipulation, Divide and Conquer
+
 # Key Idea
 # Process each of the 32 bits one by one.
 # At each step:
