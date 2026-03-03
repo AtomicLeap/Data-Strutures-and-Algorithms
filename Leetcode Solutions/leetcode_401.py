@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/binary-watch/description
 
+# Tags -> Backtracking, Bit Manipulation
+
 """
 We just need to try all valid times on the watch and keep the ones whose total number of 1-bits in (hour, minute) equals turnedOn.
 1. Hours range: 0..11 (4 LEDs)
