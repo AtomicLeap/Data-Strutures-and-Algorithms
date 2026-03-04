@@ -8,18 +8,19 @@ def max_area_of_island(grid: list[list[int]]) -> int:
     r = len(grid)
     c = len(grid[0])
     max_count = 0
+    visited = set()
 
-    def dfs(row: int, col: int, visited: set):
+    def dfs(row: int, col: int):
         row_in_bounds = 0 <= row < r
         col_in_bounds = 0 <= col < c
 
         if not row_in_bounds or not col_in_bounds:
             return 0
         
-        if grid[row][col] == '0':
+        if grid[row][col] == 0:
             return 0
         
-        cell = f"{row},{col}"
+        cell = (row, col)
 
         if cell in visited:
             return 0
@@ -27,15 +28,15 @@ def max_area_of_island(grid: list[list[int]]) -> int:
         visited.add(cell)
         count = 1
 
-        count += dfs(row - 1, col, visited)
-        count += dfs(row + 1, col, visited)
-        count += dfs(row, col - 1, visited)
-        count += dfs(row, col + 1, visited)
+        count += dfs(row - 1, col)
+        count += dfs(row + 1, col)
+        count += dfs(row, col - 1)
+        count += dfs(row, col + 1)
 
         return count
     for row in range(r):
         for col in range(c):
-            count = dfs(row, col, set())
+            count = dfs(row, col)
             max_count = max(count, max_count)
     return max_count
 
