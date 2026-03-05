@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/description/
 
+# tags -> String, Dynamic Programming
+
 # Key idea
 """
 Let table[i][j] = minimum ASCII delete sum to make s1[i:] and s2[j:] equal.
