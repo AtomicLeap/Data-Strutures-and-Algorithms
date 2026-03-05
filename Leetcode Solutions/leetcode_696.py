@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/count-binary-substrings/description/
 
+# Two-pointers, Strng
+
 def count_binary_substrings(s: str) -> int:
     prev = 0          # length of previous run
     curr = 1          # length of current run (at least 1)
