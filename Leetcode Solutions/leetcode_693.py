@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/binary-number-with-alternating-bits/description/
 
+# Tags -> Bit Manipulation
+
 def binary_has_alt_bits(n: int) -> bool:
     x = n ^ (n >> 1)
     return (x & (x + 1)) == 0
