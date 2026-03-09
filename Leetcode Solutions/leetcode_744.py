@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
 
-# Array, Binary Search
+# Tags -> Array, Binary Search
 
 def next_greatest_letter(letters: list[str], target: str) -> str:
     ord_target = ord(target) - ord('a')

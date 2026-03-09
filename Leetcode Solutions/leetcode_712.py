@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/description/
 
-# tags -> String, Dynamic Programming
+# Tags -> String, Dynamic Programming
 
 # Key idea
 """
