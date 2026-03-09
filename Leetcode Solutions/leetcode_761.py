@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/special-binary-string/description
 
+# Tags -> String, Divide and Conquer
+
 def make_largest_special(s: str) -> str:
     # Base case: too short to change
     if len(s) <= 2:
