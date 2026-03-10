@@ -22,6 +22,33 @@ Because lengths are up to 1000, use a 1D DP (space optimized).
 """
 
 # Use 2 D table - Tabulation
+def minimum_delete_ascii_sum(s1: str, s2: str) -> int:
+    n, m = len(s1), len(s2)
+
+    table = [[0] * (m + 1) for _ in range(n + 1)]
+
+    for i in range(1, n):
+        table[i][0] = table[i - 1][0] + ord(s1[i - 1])
+    
+    for j in range(1, m):
+        table[0][j] = table[0][j - 1] + ord(s2[j - 1])
+
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            if s1[i - 1] == s2[j - 1]:
+                table[i][j] = table[i - 1][j - 1]
+            else:
+                table[i][j] = min(
+                    table[i - 1][j] + ord(s1[i - 1]),
+                    table[i][j - 1] + ord(s2[j - 1])
+                )
+    return table[-1][-1]
+
+# Let n, m = len(s1), len(s2)
+# O(m . n) - Time complexity
+# O(m . n) - Space complexity
+
+# Use 2 D table - Tabulation
 def minimum_delete_sum(s1: str, s2: str) -> int:
     n, m = len(s1), len(s2)
     table = [[0]*(m + 1) for _ in range(n + 1)]
@@ -80,6 +107,8 @@ def min_ascii_sum(s1: str, s2: str) -> int:
 # O(m . n) - Time complexity
 # O(m) - Space complexit
 
+print(minimum_delete_ascii_sum(s1 = "sea", s2 = "eat")) # 231
+print(minimum_delete_ascii_sum("delete", s2 = "leet")) # 403
 print(minimum_delete_sum(s1 = "sea", s2 = "eat")) # 231
 print(minimum_delete_sum("delete", s2 = "leet")) # 403
 print(min_ascii_sum(s1 = "sea", s2 = "eat")) # 231
