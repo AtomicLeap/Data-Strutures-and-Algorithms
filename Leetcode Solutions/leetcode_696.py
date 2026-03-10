@@ -23,5 +23,34 @@ def count_binary_substrings(s: str) -> int:
 # O(n) - Time complexity
 # O(1) - Space complexity
 
+
+def count_binary_substrings_i(s: str) -> int:
+    count_list = []
+    prev = -1
+    count = 0
+    result = 0
+
+    for char in s:
+        if char == prev:
+            count += 1
+        else:
+            count_list.append(count)
+            prev = char
+            count = 1
+    if count:
+        count_list.append(count)
+
+    for idx in range(1, len(count_list)):
+        result += min(count_list[idx], count_list[idx - 1])
+    
+    return result
+
+# O(n) - Time complexity
+# O(1) - Space complexity
+
+
 print(count_binary_substrings("00110011")) # 6
 print(count_binary_substrings("10101")) # 4
+
+print(count_binary_substrings_i("00110011")) # 6
+print(count_binary_substrings_i("10101")) # 4
