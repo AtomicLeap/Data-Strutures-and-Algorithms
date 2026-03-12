@@ -32,8 +32,8 @@ def min_window_substring(s: str, t: str) -> str:
                 required_chars_statisfied -= 1
             left += 1
 
-    _, left, right = results
-    return "" if left is None else s[left:right+1]
+    min_len, left, right = results
+    return "" if min_len == float('inf') else s[left:right+1]
 
 # O(m + n) Time complexity
 # O(k) ≈ O(1) Space complexity --> for English alphabet
