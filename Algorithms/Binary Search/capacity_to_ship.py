@@ -16,17 +16,18 @@
 """
 
 def ship_within_days(weights: list[int], days: int) -> int:
+    n = len(weights)
     def feasible(capacity: int) -> bool:
-        days_count = 1
-        total_weight = 0
-        for weight in weights:
-            total_weight += weight
-            if total_weight > capacity:  # too heavy, wait for the next day
-                total_weight = weight
-                days_count += 1
-                if days_count > days:  # cannot ship within D days
-                    return False
-        return True
+        idx = 0
+        for _ in range(days):
+            curr_capacity = capacity
+            while idx < n and curr_capacity >= weights[idx]:
+                curr_capacity -= weights[idx]
+                idx += 1
+
+                if idx == n:
+                    return True
+        return False
 
     left, right = max(weights), sum(weights) # min_limit, max_limit for daily weight capacity
     while left < right:
