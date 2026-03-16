@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/minimum-absolute-difference/description/
 
+# Tags -> Array
+
 def min_abs_difference(arr: list[int])->list[int]:
     n = len(arr)
     min_diff = float('inf')
