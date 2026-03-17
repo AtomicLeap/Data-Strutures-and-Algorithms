@@ -1,6 +1,8 @@
 # Leetcode 1277. Count Square Submatrices with All Ones
 
- # https://leetcode.com/problems/count-square-submatrices-with-all-ones/description/
+# https://leetcode.com/problems/count-square-submatrices-with-all-ones/description/
+
+# Tags -> Dynamic Programming, Array
 
 def solution(matrix: list[list[int]]) -> int:
     if not matrix or not matrix[0]:
