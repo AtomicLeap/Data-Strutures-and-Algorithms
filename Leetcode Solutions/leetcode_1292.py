@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/description
 
+# Tags -> Binary Search, Prefix Sum
+
 # Key idea
 """
 Use a 2D prefix-sum so you can query any square sum in O(1), then 
