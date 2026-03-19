@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/count-submatrices-with-top-left-element-and-sum-less-than-k/description/
 
-# Tags -> Array, Prefix Sum
+# Tags -> Array, Prefix Sum, Matrix
 
 def count_submatrices(grid: list[list[int]], k: int) -> int:
     m, n = len(grid), len(grid[0])
