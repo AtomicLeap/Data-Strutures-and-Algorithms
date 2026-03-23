@@ -2,6 +2,8 @@
 
 # https://leetcode.com/problems/balance-a-binary-search-tree/description
 
+# Tags -> Tree, Depth-First Search, Binary Search Tree
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
