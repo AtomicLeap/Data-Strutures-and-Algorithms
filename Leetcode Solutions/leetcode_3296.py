@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/minimum-number-of-seconds-to-make-mountain-height-zero/description/
 
-# Tags -> Maths, Binary Search
+# Tags -> Math, Binary Search
 
 from math import isqrt
 
