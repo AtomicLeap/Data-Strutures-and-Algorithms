@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/palindrome-number/description/
 
-# Tags -> Maths
+# Tags -> Math
 
 def solution_1(num: int) -> bool:
   num_str = str(num)
@@ -38,7 +38,7 @@ def solution_3(num: int) -> bool:
     # For odd-length numbers: num == reversed_half // 10 (middle digit ignored)
     return num == reversed_half or num == reversed_half // 10
 
-# O(n.log n) - Time complexity
+# O(log n) - Time complexity
 # O(1) - Space complexity
 
 print(solution_3(121))
