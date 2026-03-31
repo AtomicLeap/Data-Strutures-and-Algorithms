@@ -51,3 +51,13 @@ def can_be_equal_o(s1: str, s2: str) -> bool:
 
 print(can_be_equal("abcdba", "cabdab")) # True
 print(can_be_equal("abe", "bea")) # False
+
+from collections import Counter
+def can_be_equal_e(s1: str, s2: str) -> bool:
+    return Counter(s1[::2]) == Counter(s2[::2]) and Counter(s1[1::2]) == Counter(s2[1::2])
+
+# O(n) Time complexity
+# O(1) Space complexity
+
+print(can_be_equal_e("abcdba", "cabdab")) # True
+print(can_be_equal_e("abe", "bea")) # False
