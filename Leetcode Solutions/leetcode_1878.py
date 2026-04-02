@@ -2,7 +2,7 @@
 
 # https://leetcode.com/problems/get-biggest-three-rhombus-sums-in-a-grid/description
 
-# Tags -> Maths
+# Tags ->  Math, Matrix, Sorting 
 
 def get_biggest_three(grid: list[list[int]]) -> list[int]:
     m, n = len(grid), len(grid[0])
