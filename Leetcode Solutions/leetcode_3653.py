@@ -14,8 +14,8 @@ def xor_after_queries(nums: list[int], queries: list[list[int]]) -> int:
             idx += k
 
     result = 0
-    for x in nums:
-        result ^= x
+    for num in nums:
+        result ^= num
 
     return result
 
