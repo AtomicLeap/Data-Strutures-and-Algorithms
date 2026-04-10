@@ -7,7 +7,7 @@
 from typing import List
 from collections import deque
 
-def canFinish(num_courses: int, prerequisites: List[List[int]]) -> bool:
+def can_finish(num_courses: int, prerequisites: List[List[int]]) -> bool:
     graph = [[] for _ in range(num_courses)]
     indegree = [0] * num_courses
 
@@ -22,7 +22,7 @@ def canFinish(num_courses: int, prerequisites: List[List[int]]) -> bool:
         if indegree[course] == 0:
             queue.append(course)
 
-    taken = 0
+    taken = 0 # visited courses count
 
     while queue:
         course = queue.popleft()
@@ -38,6 +38,6 @@ def canFinish(num_courses: int, prerequisites: List[List[int]]) -> bool:
 # O(V + E) Time complexity - we visit each course and prerequisite once
 # O(V + E) Space complexity - for the graph and indegree arrays
 
-print(canFinish(2, [[1, 0]])) # True
-print(canFinish(2, [[1, 0], [0, 1]])) # False
-print(canFinish(4, [[1, 0], [2, 1], [3, 2]])) # True
+print(can_finish(2, [[1, 0]])) # True
+print(can_finish(2, [[1, 0], [0, 1]])) # False
+print(can_finish(4, [[1, 0], [2, 1], [3, 2]])) # True
