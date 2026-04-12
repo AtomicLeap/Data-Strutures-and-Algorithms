@@ -4,19 +4,17 @@
 
 # Tags -> Math, Greedy
 
-from Models.jigsaw import Solution
-
 
 def minimum_cost(
     cost1: int,
     cost2: int,
-    costBoth: int,
+    cost_both: int,
     need1: int,
     need2: int
 ) -> int:
     def total_cost(x: int) -> int:
         return (
-            x * costBoth
+            x * cost_both
             + max(0, need1 - x) * cost1
             + max(0, need2 - x) * cost2
         )
